@@ -1,6 +1,7 @@
 package csvparser;
 
 import com.opencsv.CSVReader;
+
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -13,7 +14,7 @@ import java.util.ArrayList;
 public class CSVParser {
 
     public static void main(String[] args) throws IOException {
-        final String FILE_NAME = "file.csv";
+        final String FILE_NAME = "BugsIDFormCrawler2_V2.csv";
         ArrayList<String> rowContent = new ArrayList<>();
 
         CSVReader reader = new CSVReader(new FileReader(FILE_NAME) , '\t', '\'', 1);
@@ -29,6 +30,5 @@ public class CSVParser {
         for (int i = 0; i < rowContent.size(); i++) {
             cln.separateDependents(rowContent.get(i));
         }
-        System.out.println(rowContent.get(0));
     }
 }

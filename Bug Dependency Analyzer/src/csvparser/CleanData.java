@@ -17,16 +17,18 @@ public class CleanData {
 
     public void separateDependents(String line) throws IOException {
 
-        CSVWriter writer = new CSVWriter(new FileWriter("test.csv"), '\t');
+        CSVWriter writer = new CSVWriter(new FileWriter("M-BUGS.csv"), '\t');
 
         String[] value = line.split(",");
         String[] dependentItems = value[2].split(" ");
+//        String[] duplicateItems = value[3].split(" ");
+//        String[] blockItems = value[24].split(" ");
 
         String[] oneLine;
 
         for (int i = 0; i < dependentItems.length; i++) {
             String row;
-
+            System.out.println(">>");
                 row = value[0] + "," + value[1] + "," + dependentItems[i] + "," + value[3] + "," + value[4]
                         + "," + value[5] + "," + value[6] + "," + value[7] + "," + value[8] + "," + value[9]
                         + "," + value[10] + "," + value[11] + "," + value[12] + "," + value[13] + "," + value[14]
@@ -36,6 +38,7 @@ public class CleanData {
                         + "," + value[30];
                 oneLine = row.split("','");
                 allLines.add(oneLine);
+            System.out.println(value[0]);
         }
         writer.writeAll(allLines);
         writer.close();
